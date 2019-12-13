@@ -1,0 +1,43 @@
+‪
+https://github.com/DeepaSh/TR0015.git
+master
+cf55a990f3dd3e830b7a00f775c1706891861dfe
+4977
+
+r-5db66c3bf681db7ee7
+
+MATCH(repo:Repo{url:"https://github.com/deepashammi/S018.git"})<-[:IS_OF]-(branch:Branch{name:"master"})
+OPTIONAL MATCH (commit:Commit)-[:IS_ON]->(branch)
+OPTIONAL MATCH (commit)-[:COMMITTED_BY]->(developer:Developer)
+OPTIONAL MATCH (directory:Directory)-[:IS_IN]->(branch)
+OPTIONAL MATCH (file:File)-[:IS_IN]->(directory)
+OPTIONAL MATCH (fileVersion:FileVersion)-[:IS_FOR]->(file)
+OPTIONAL MATCH (codeHunk:CodeHunk)-[:IS_IN]->(fileVersion)
+OPTIONAL MATCH (insight:Insight)<-[:TOUCHED]-(commit)
+OPTIONAL MATCH (insightVersion:InsightVersion)-[:IS_FOR]->(insight)
+DETACH DELETE repo, branch, commit, developer, directory, file, fileVersion, codeHunk, insight, insightVersion
+
+
+
+MATCH (n:Organization) optional match (m:Repourl:"https://github.com/deepashammi/STOCT01.git"}) RETURN n,m LIMIT 25
+
+
+
+
+"id": 4953
+r-34a8d9ef08ff095e27
+
+{
+"dfScmUrl": "https://github.com/DeepaSh/TR015.git?branch=master",
+"revision": "a899eaa53bc82fb05735733f592bccf47c36ac0a"
+}
+
+
+
+
+
+http://codeserver-interfaces-qa.devfactory.com/api/github/webhooks/pushevent
+
+
+
+MATCH (n:Organization) optional match (m:Repo{url:"https://github.com/DeepaSh/TR016.git"}) RETURN n,m LIMIT 25
